@@ -1,10 +1,17 @@
 
 import './App.css';
-import { FormularioRegistro } from './components/FormularioRegistro';
+import {
+  BrowserRouter as Router
+} from 'react-router-dom'
+import { RouterComponent } from './router/RouterComponent';
 
 function App() {
+
   return (
-    <FormularioRegistro />
+    <Router>
+      <RouterComponent />
+    </Router>
+    
   );
 }
 
