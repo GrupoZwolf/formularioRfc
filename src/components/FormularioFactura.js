@@ -48,7 +48,6 @@ export const FormularioFactura = () => {
         if (response.response === "error") {
             console.log(response)
         } else {
-            console.log(response)
         }
     }
 

@@ -41,7 +41,6 @@ export const FormularioRegistro = () => {
             const resData = await res;
             return resData;
         })
-        console.log(response)
     }
 
     const handleType = (e) => {

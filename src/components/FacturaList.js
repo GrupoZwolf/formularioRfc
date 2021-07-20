@@ -19,7 +19,6 @@ export const FacturaList = ({ rfc }) => {
             .then( (res) => res.json() )
             .then( async (res) => {
                 const resData = await res;
-                console.log(resData)
                 if(resData.status === "error" ){
 
                 } else {
@@ -60,7 +59,7 @@ export const FacturaList = ({ rfc }) => {
                         return (
                         <>
                         <div className="col-sm-4">
-                            <FacturaCard key={ element.uid } factura={ element }  />
+                            <FacturaCard key={ element.uuid } factura={ element }  />
                         </div>
                         </>
                         )
