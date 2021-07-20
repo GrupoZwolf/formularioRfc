@@ -32,7 +32,7 @@ export const FormularioFactura = () => {
                 break;
         }
         data.uid = uid;
-        const response = await fetch('http://localhost:5000/api/factura/create-factura', {
+        const response = await fetch('http://app-factura-carnes.herokuapp.com/api/factura/create-factura', {
             method: 'POST',
             mode: 'cors',
             headers: {

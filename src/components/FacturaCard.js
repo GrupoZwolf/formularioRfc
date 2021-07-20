@@ -4,7 +4,7 @@ import FileSaver from 'file-saver';
 export const FacturaCard = ({ factura }) => {
 
     const handleDownload = async () => {
-        const response = await fetch(`http://localhost:5000/api/factura/get-factura-by-id?uuid=${ factura.UUID }`, {
+        const response = await fetch(`http://app-factura-carnes.herokuapp.com/api/factura/get-factura-by-id?uuid=${ factura.UUID }`, {
             method: 'GET',
             mode: 'cors',
             headers: {

@@ -28,7 +28,7 @@ export const FormularioRegistro = () => {
 
 
     const onSubmit = async (data) => {
-        const response = await fetch('http://localhost:5000/api/clientes/add', {
+        const response = await fetch('http://app-factura-carnes.herokuapp.com/api/clientes/add', {
             method: 'POST',
             mode: 'cors',
             headers: {

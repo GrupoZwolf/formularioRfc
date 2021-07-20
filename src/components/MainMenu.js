@@ -19,7 +19,7 @@ export const MainMenu = ({ rfc }) => {
 
     useEffect(() => {
         const bringData = async () => {
-            await fetch(`http://localhost:5000/api/clientes/getListByRFC?rfc=${ rfc }`, {
+            await fetch(`http://app-factura-carnes.herokuapp.com/api/clientes/getListByRFC?rfc=${ rfc }`, {
                 method: 'GET',
                 mode: 'cors',
                 headers: {

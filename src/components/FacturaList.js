@@ -9,7 +9,7 @@ export const FacturaList = ({ rfc }) => {
     
     useEffect(() => {
         const bringData = async () => {
-            await fetch(`http://localhost:5000/api/factura/get-factura-list?rfc=${ rfc }`, {
+            await fetch(`http://app-factura-carnes.herokuapp.com/api/factura/get-factura-list?rfc=${ rfc }`, {
                 method: 'GET',
                 mode: 'cors',
                 headers: {
