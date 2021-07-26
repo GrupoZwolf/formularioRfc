@@ -93,7 +93,7 @@ export const FormularioUpdate = () => {
 
     const onSubmit = async (dataForm) => {
         
-        const response = await fetch('http://localhost:5000/api/clientes/update', {
+        const response = await fetch('http://app-factura-carnes.herokuapp.com/api/clientes/update', {
             method: 'POST',
             mode: 'cors',
             headers: {
