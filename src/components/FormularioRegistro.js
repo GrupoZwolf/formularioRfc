@@ -20,7 +20,11 @@ export const FormularioRegistro = () => {
         colonia: '',
         estado: ''
     })
-
+    const [isDisable, setisDisable] = useState(false)
+    const [senderState, setSenderState] = useState({
+        isSended :false,
+        isSuccess : false
+    })
     
 
    
@@ -41,6 +45,19 @@ export const FormularioRegistro = () => {
             const resData = await res;
             return resData;
         })
+        if(response.status === "success"){
+            setisDisable(true);
+            setSenderState({
+                isSended: true,
+                isSuccess: true
+            })
+        } else {
+            setisDisable(false);
+            setSenderState({
+                isSended: true,
+                isSuccess: false,
+            })
+        }
     }
 
     const handleType = (e) => {
@@ -54,6 +71,25 @@ export const FormularioRegistro = () => {
 
     return (
         <div className="container fs-5">
+
+            {
+                (senderState.isSended && senderState.isSuccess) ?
+                (
+                    <div className="row pt-5">
+                        <div className="alert alert-success" role="alert">
+                                Sus datos se actualizaron correctamente
+                        </div>
+                    </div>
+                ) 
+                :
+                (
+                    <div className="row pt-5">
+                        
+                    </div>
+                )
+            }
+
+
                 <div className="row">
                     <div className="col text-left pt-5">
                         <h5 className="h2 uppercase text-center">
@@ -91,7 +127,7 @@ export const FormularioRegistro = () => {
 
                             <div className=" mb-3 text-left">
                                 <label htmlFor="telefono" className="form-label">Telefono</label>
-                                <input value={ data.telefono } type="text" className="form-control fs-6" id="telefono" {...register("telefono", {required: true,})} onChange={ handleType } />
+                                <input value={ data.telefono } type="text" className="form-control fs-6" id="telefono" {...register("telefono")} onChange={ handleType } />
                             </div>
 
                             
@@ -110,22 +146,22 @@ export const FormularioRegistro = () => {
                                 </div>
                                 <div className="col-4 mb-3 text-left">
                                     <label htmlFor="Estado" className="form-label">Estado</label>
-                                    <input value={ data.estado } type="text" className="form-control fs-6" id="Estado"  {...register("estado", {required: true})} onChange={ handleType } />
+                                    <input value={ data.estado } type="text" className="form-control fs-6" id="Estado"  {...register("estado")} onChange={ handleType } />
                                 </div>
                                 <div className="col-5 mb-3 text-left">
                                     <label htmlFor="colonia" className="form-label">Colonia</label>
-                                    <input value={ data.colonia } type="text" className="form-control fs-6" id="colonia" {...register("colonia", {required: true})} onChange={ handleType } />
+                                    <input value={ data.colonia } type="text" className="form-control fs-6" id="colonia" {...register("colonia")} onChange={ handleType } />
                                 </div>
                             </div>
 
                             <div className="row">
                                 <div className="col-6 mb-3 text-left">
                                     <label htmlFor="calle" className="form-label">Calle</label>
-                                    <input value={ data.calle } type="text" className="form-control fs-6" id="calle" {...register("calle", {required: true})} onChange={ handleType } />
+                                    <input value={ data.calle } type="text" className="form-control fs-6" id="calle" {...register("calle")} onChange={ handleType } />
                                 </div>
                                 <div className="col-3 mb-3 text-left">
                                     <label htmlFor="numero_exterior" className="form-label">Num. Ext.</label>
-                                    <input value={ data.numero_exterior } type="text" className="form-control fs-6" id="numero_exterior" {...register("numero_exterior", {required: true})} onChange={ handleType } />
+                                    <input value={ data.numero_exterior } type="text" className="form-control fs-6" id="numero_exterior" {...register("numero_exterior")} onChange={ handleType } />
                                 </div>
                                 <div className="col-3 mb-3 text-left">
                                     <label htmlFor="numero_interior" className="form-label">Num. Int.</label>
@@ -141,7 +177,7 @@ export const FormularioRegistro = () => {
 
                             
                             <div className="col mx-auto text-center">
-                                    <button type="submit" className="btn btn-primary btn-lg" >Enviar</button>
+                                    <button type="submit" className="btn btn-primary btn-lg" disabled={ isDisable } >Enviar</button>
                             </div>
                             
                         </form>
