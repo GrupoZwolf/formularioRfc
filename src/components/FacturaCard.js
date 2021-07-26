@@ -14,7 +14,7 @@ export const FacturaCard = ({ factura }) => {
             return respons.blob();
         }).then(async (data) => {
             const resData = await data
-            FileSaver.saveAs(resData, 'nameFile.xml');
+            FileSaver.saveAs(resData, `factura${factura.folio}.xml`);
         })
     }
 
@@ -29,7 +29,7 @@ export const FacturaCard = ({ factura }) => {
             return respons.blob();
         }).then(async (data) => {
             const resData = await data
-            FileSaver.saveAs(resData, 'nameFile.pdf');
+            FileSaver.saveAs(resData, `factura${factura.folio}.pdf`);
         })
     }
 
